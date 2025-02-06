@@ -23,6 +23,15 @@ per line, but again, there's no handy way to read the whole thing.
 
 # Installation
 
+## With lazy.nvim
+```lua
+{
+  'Kamyil/lsp_lines.nvim',
+  event = 'LspAttach',
+  opts = {},
+}
+```
+  
 ## With packer.nvim
 
 Using packer.nvim (this should probably be registered _after_ `lspconfig`):
