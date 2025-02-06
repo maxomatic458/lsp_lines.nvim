@@ -188,6 +188,13 @@ function M.show(namespace, bufnr, diagnostics, opts, source)
       end
     end
 
+    local total_lines = vim.api.nvim_buf_line_count(bufnr)
+
+    if lnum >= total_lines then
+      print("Skipping out-of-range diagnostic on line", lnum, "Total lines:", total_lines)
+      return -- Skip setting this virtual line
+    end
+
     vim.api.nvim_buf_set_extmark(bufnr, namespace, lnum, 0, { virt_lines = virt_lines })
   end
 end
